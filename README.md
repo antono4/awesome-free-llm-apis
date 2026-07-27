@@ -14,6 +14,19 @@
 
 <p align="center"><sub>All endpoints are OpenAI SDK-compatible unless noted. Each link points to the provider's API key page.</sub></p>
 
+<hr>
+
+<p align="center">
+	<a href="https://manifest.build">
+		<picture>
+			<source media="(prefers-color-scheme: dark)" srcset="media/manifest-logo-dark.png">
+			<img src="media/manifest-logo-light.png" width="240" alt="Manifest">
+		</picture>
+	</a>
+</p>
+
+<p align="center"><em>All of those free LLM APIs are available at <a href="https://manifest.build">manifest.build</a> - make reliable agents.</em></p>
+
 ## Contents
 
 - [Provider APIs](#provider-apis)
