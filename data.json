@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-15",
+  "lastUpdated": "2026-07-30",
   "providers": [
     {
       "name": "Aion Labs",
@@ -384,24 +384,24 @@
           "rateLimit": "10 RPM, 50 RPD"
         },
         {
-          "id": "meta/Llama-4-Scout-17B-16E",
-          "name": "Llama-4-Scout-17B-16E",
+          "id": "meta/Llama-4-Scout-17B-16E-Instruct",
+          "name": "Llama-4-Scout-17B-16E-Instruct",
           "context": "512K",
           "maxOutput": "~4K",
           "modality": "Text + Vision",
           "rateLimit": "15 RPM, 150 RPD"
         },
         {
-          "id": "meta/Llama-4-Maverick-17B-128E",
-          "name": "Llama-4-Maverick-17B-128E",
+          "id": "meta/Llama-4-Maverick-17B-128E-Instruct-FP8",
+          "name": "Llama-4-Maverick-17B-128E-Instruct-FP8",
           "context": "256K",
           "maxOutput": "~4K",
           "modality": "Text + Vision",
           "rateLimit": "10 RPM, 50 RPD"
         },
         {
-          "id": "meta/Meta-Llama-3.3-70B",
-          "name": "Meta-Llama-3.3-70B",
+          "id": "meta/Llama-3.3-70B-Instruct",
+          "name": "Llama-3.3-70B-Instruct",
           "context": "131K",
           "maxOutput": "~4K",
           "modality": "Text",
@@ -416,7 +416,7 @@
           "rateLimit": "15 RPM, 150 RPD"
         },
         {
-          "id": "mistralai/Mistral-Small-3.1",
+          "id": "mistral-small-2503",
           "name": "Mistral-Small-3.1",
           "context": "128K",
           "maxOutput": "~4K",
