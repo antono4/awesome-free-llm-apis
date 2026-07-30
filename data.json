@@ -50,16 +50,16 @@
         {
           "id": "command-a-plus-05-2026",
           "name": "Command A+ (218B)",
-          "context": "128K",
-          "maxOutput": "4K",
-          "modality": "Text",
+          "context": "436K",
+          "maxOutput": "64K",
+          "modality": "Text + Image",
           "rateLimit": "20 RPM"
         },
         {
           "id": "command-a-03-2025",
           "name": "Command A (111B)",
-          "context": "256K",
-          "maxOutput": "4K",
+          "context": "288K",
+          "maxOutput": "8K",
           "modality": "Text",
           "rateLimit": "20 RPM"
         },
@@ -86,6 +86,54 @@
           "maxOutput": "4K",
           "modality": "Text",
           "rateLimit": "20 RPM"
+        },
+        {
+          "id": "command-a-reasoning-08-2025",
+          "name": "Command A Reasoning",
+          "context": "288K",
+          "maxOutput": "~4K",
+          "modality": "Text (reasoning)",
+          "rateLimit": "20 RPM"
+        },
+        {
+          "id": "command-a-translate-08-2025",
+          "name": "Command A Translate",
+          "context": "~9K",
+          "maxOutput": "~4K",
+          "modality": "Text",
+          "rateLimit": "20 RPM"
+        },
+        {
+          "id": "command-a-vision-07-2025",
+          "name": "Command A Vision",
+          "context": "128K",
+          "maxOutput": "~4K",
+          "modality": "Text + Image",
+          "rateLimit": "20 RPM"
+        },
+        {
+          "id": "command-r7b-arabic-02-2025",
+          "name": "Command R7B Arabic",
+          "context": "128K",
+          "maxOutput": "~4K",
+          "modality": "Text",
+          "rateLimit": "20 RPM"
+        },
+        {
+          "id": "c4ai-aya-expanse-32b",
+          "name": "Aya Expanse 32B",
+          "context": "128K",
+          "maxOutput": "~4K",
+          "modality": "Text",
+          "rateLimit": "20 RPM"
+        },
+        {
+          "id": "c4ai-aya-vision-32b",
+          "name": "Aya Vision 32B",
+          "context": "16K",
+          "maxOutput": "~4K",
+          "modality": "Text + Image",
+          "rateLimit": "20 RPM"
         }
       ]
     },
@@ -100,12 +148,28 @@
       "footnoteRef": 1,
       "models": [
         {
+          "id": "gemini-3.6-flash",
+          "name": "Gemini 3.6 Flash",
+          "context": "1M",
+          "maxOutput": "65K",
+          "modality": "Text + Image + Audio + Video",
+          "rateLimit": "15 RPM, 1,500 RPD"
+        },
+        {
           "id": "gemini-3.5-flash",
           "name": "Gemini 3.5 Flash",
           "context": "1M",
-          "maxOutput": "64K",
+          "maxOutput": "65K",
           "modality": "Text + Image + Audio + Video",
           "rateLimit": "15 RPM, 1,500 RPD"
+        },
+        {
+          "id": "gemini-3.5-flash-lite",
+          "name": "Gemini 3.5 Flash-Lite",
+          "context": "1M",
+          "maxOutput": "65K",
+          "modality": "Text + Image + Audio + Video",
+          "rateLimit": "30 RPM, 1,500 RPD"
         },
         {
           "id": "gemini-3.1-flash-lite",
@@ -124,9 +188,17 @@
           "rateLimit": "15 RPM, 1,500 RPD"
         },
         {
+          "id": "gemini-2.5-flash-lite",
+          "name": "Gemini 2.5 Flash-Lite",
+          "context": "1M",
+          "maxOutput": "65K",
+          "modality": "Text + Image + Audio + Video",
+          "rateLimit": "30 RPM, 1,500 RPD"
+        },
+        {
           "id": "gemini-2.5-pro",
           "name": "Gemini 2.5 Pro",
-          "context": "2M",
+          "context": "1M",
           "maxOutput": "65K",
           "modality": "Text + Image + Audio + Video",
           "rateLimit": "5 RPM, 50 RPD"
@@ -524,7 +596,7 @@
       "flag": "🇺🇸",
       "url": "https://huggingface.co/settings/tokens",
       "baseUrl": "https://router.huggingface.co/v1",
-      "description": "100K monthly Inference Provider credits for free users. Routes to Fireworks, Together, Hyperbolic, Nebius, Novita, DeepInfra and others. Thousands of models.",
+      "description": "$0.10/month in Inference Provider credits for free users (subject to change). Routes to Fireworks, Together, Hyperbolic, Nebius, Novita, DeepInfra and others. Thousands of models.",
       "footnoteRef": null,
       "models": [
         {
@@ -546,7 +618,7 @@
         {
           "id": "microsoft/phi-4",
           "name": "phi-4",
-          "context": "128K",
+          "context": "16K",
           "maxOutput": "~4K",
           "modality": "Text",
           "rateLimit": "Credit-metered"
@@ -816,16 +888,56 @@
           "rateLimit": "~40 RPM"
         },
         {
-          "id": "minimax/minimax-m2.7",
-          "name": "minimax/minimax-m2.7",
+          "id": "minimaxai/minimax-m3",
+          "name": "minimaxai/minimax-m3",
+          "context": "1M",
+          "maxOutput": "~64K",
+          "modality": "Text",
+          "rateLimit": "~40 RPM"
+        },
+        {
+          "id": "mistralai/mistral-medium-3.5-128b",
+          "name": "mistralai/mistral-medium-3.5-128b",
+          "context": "262K",
+          "maxOutput": "262K",
+          "modality": "Text",
+          "rateLimit": "~40 RPM"
+        },
+        {
+          "id": "nvidia/nemotron-3-ultra-550b-a55b",
+          "name": "nvidia/nemotron-3-ultra-550b-a55b",
+          "context": "262K",
+          "maxOutput": "262K",
+          "modality": "Text",
+          "rateLimit": "~40 RPM"
+        },
+        {
+          "id": "openai/gpt-oss-120b",
+          "name": "openai/gpt-oss-120b",
+          "context": "131K",
+          "maxOutput": "131K",
+          "modality": "Text",
+          "rateLimit": "~40 RPM"
+        },
+        {
+          "id": "openai/gpt-oss-20b",
+          "name": "openai/gpt-oss-20b",
+          "context": "131K",
+          "maxOutput": "131K",
+          "modality": "Text",
+          "rateLimit": "~40 RPM"
+        },
+        {
+          "id": "deepseek-ai/deepseek-v4-pro",
+          "name": "deepseek-ai/deepseek-v4-pro",
           "context": "128K",
-          "maxOutput": "8K",
+          "maxOutput": "~64K",
           "modality": "Text",
           "rateLimit": "~40 RPM"
         },
         {
           "id": null,
-          "name": "+ 90 more models",
+          "name": "+ 85 more models",
           "context": "Varies",
           "maxOutput": "Varies",
           "modality": "Text, Image, Video, Speech, Embeddings",
@@ -1147,7 +1259,7 @@
           "id": "Meta-Llama-3.3-70B-Instruct",
           "name": "Meta-Llama-3.3-70B-Instruct",
           "context": "128K",
-          "maxOutput": "~8K",
+          "maxOutput": "~3K",
           "modality": "Text",
           "rateLimit": "20 RPM, 20 RPD, 200K TPD"
         },
@@ -1155,7 +1267,7 @@
           "id": "gpt-oss-120b",
           "name": "gpt-oss-120b",
           "context": "128K",
-          "maxOutput": "~8K",
+          "maxOutput": "~128K",
           "modality": "Text",
           "rateLimit": "20 RPM, 20 RPD, 200K TPD"
         },
@@ -1163,7 +1275,7 @@
           "id": "MiniMax-M2.7",
           "name": "MiniMax-M2.7",
           "context": "128K",
-          "maxOutput": "~8K",
+          "maxOutput": "~192K",
           "modality": "Text",
           "rateLimit": "20 RPM, 20 RPD, 200K TPD"
         },
@@ -1171,8 +1283,8 @@
           "id": "gemma-4-31B-it",
           "name": "gemma-4-31B-it (Preview)",
           "context": "128K",
-          "maxOutput": "~8K",
-          "modality": "Text",
+          "maxOutput": "~128K",
+          "modality": "Text + Image + Video",
           "rateLimit": "20 RPM, 20 RPD, 200K TPD"
         }
       ]
