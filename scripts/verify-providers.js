@@ -441,15 +441,64 @@ async function run() {
     }
   }
 
+  // ---------------------------------------------------------------------------
+  // Base URL connectivity checks for SKIPPED providers
+  // ---------------------------------------------------------------------------
+  const skippedProviders = new Set(
+    results.filter(r => r.verdict === 'SKIPPED').map(r => r.provider)
+  );
+  const baseUrlChecks = [];
+  if (skippedProviders.size > 0) {
+    console.log('\n=== Base URL connectivity checks (SKIPPED providers) ===');
+    for (const provider of data.providers) {
+      if (!skippedProviders.has(provider.name)) continue;
+      const rawUrl = provider.baseUrl || '';
+      // Resolve {account_id} placeholder if present
+      const resolvedUrl = rawUrl.replace('{account_id}', KEY.CF_ACCOUNT || 'unknown');
+      const u = parseUrl(resolvedUrl);
+      if (!u) {
+        baseUrlChecks.push({ provider: provider.name, baseUrl: rawUrl, status: 'SKIPPED', reason: 'unparseable URL' });
+        console.log(`  ${provider.name}: SKIPPED (unparseable URL)`);
+        continue;
+      }
+      const pingPath = u.pathname || '/';
+      process.stdout.write(`  ${provider.name} (${u.hostname}) ... `);
+      const startMs = Date.now();
+      const res = await httpRequest({
+        hostname: u.hostname,
+        port: u.port || (u.protocol === 'http:' ? 80 : 443),
+        path: pingPath,
+        method: 'GET',
+        protocol: u.protocol,
+        headers: { 'User-Agent': 'awesome-free-llm-apis-verifier/1.0' },
+      }, null);
+      const latency = Date.now() - startMs;
+      // Any HTTP response (even 4xx) means the host is reachable
+      const reachable = res.status > 0;
+      const checkStatus = reachable ? 'REACHABLE' : 'UNREACHABLE';
+      baseUrlChecks.push({
+        provider: provider.name,
+        baseUrl: rawUrl,
+        status: checkStatus,
+        httpStatus: res.status || null,
+        latencyMs: latency,
+        error: res.status === 0 ? redactKeys(res.body || '') : null,
+      });
+      console.log(`${checkStatus} HTTP ${res.status} ${latency}ms`);
+    }
+  }
+
   // Write report
   if (outFile) {
     fs.mkdirSync(path.dirname(path.resolve(outFile)), { recursive: true });
-    fs.writeFileSync(outFile, JSON.stringify(results, null, 2));
+    const report = { modelResults: results, baseUrlChecks };
+    fs.writeFileSync(outFile, JSON.stringify(report, null, 2));
     console.log(`\nReport written to ${outFile}`);
   }
 
   console.log(`\nTested ${testedModels} models (of ${totalModels} non-placeholder)`);
-  return results;
+  console.log(`Base URL checks: ${baseUrlChecks.filter(c => c.status === 'REACHABLE').length} REACHABLE, ${baseUrlChecks.filter(c => c.status === 'UNREACHABLE').length} UNREACHABLE`);
+  return { modelResults: results, baseUrlChecks };
 }
 
 // ---------------------------------------------------------------------------
