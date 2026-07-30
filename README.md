@@ -178,9 +178,9 @@ Base URL: `https://router.huggingface.co/v1`
 | Model Name                      | Context | Max Output | Modality                       | Rate Limit              |
 | ------------------------------- | ------- | ---------- | ------------------------------ | ----------------------- |
 | Meta-Llama-3.1-8B-Instruct      | 128K    | ~4K        | Text                           | Credit-metered          |
-| Mistral-7B-Instruct-v0.3        | 32K     | ~4K        | Text                           | Credit-metered          |
-| Mixtral-8x7B-Instruct-v0.1      | 32K     | ~4K        | Text                           | Credit-metered          |
-| Phi-3.5-mini-instruct           | 128K    | ~4K        | Text                           | Credit-metered          |
+| gemma-3-4b-it                   | 131K    | ~4K        | Text                           | Credit-metered          |
+| phi-4                           | 128K    | ~4K        | Text                           | Credit-metered          |
+| Qwen2.5-Coder-7B-Instruct       | 131K    | ~4K        | Text                           | Credit-metered          |
 | Qwen2.5-7B-Instruct             | 131K    | ~4K        | Text                           | Credit-metered          |
 | + thousands of community models | Varies  | Varies     | Text, Image, Audio, Embeddings | 100K credits/month free |
 
@@ -235,13 +235,13 @@ Base URL: `https://integrate.api.nvidia.com/v1`
 
 | Model Name                                | Context | Max Output | Modality                               | Rate Limit |
 | ----------------------------------------- | ------- | ---------- | -------------------------------------- | ---------- |
-| `deepseek-ai/deepseek-r1`                 | 128K    | ~163K      | Text (reasoning)                       | ~40 RPM    |
+| `deepseek-ai/deepseek-v4-flash`           | 1M      | ~64K       | Text                                   | ~40 RPM    |
 | `nvidia/nemotron-3-super-120b-a12b`       | 262K    | 262K       | Text                                   | ~40 RPM    |
 | `nvidia/nemotron-3-nano-30b-a3b`          | 128K    | 32K        | Text                                   | ~40 RPM    |
 | `nvidia/llama-3.1-nemotron-ultra-253b-v1` | 128K    | 4K         | Text                                   | ~40 RPM    |
-| `meta/llama-3.1-405b-instruct`            | 128K    | 4K         | Text                                   | ~40 RPM    |
-| `qwen/qwen2.5-72b-instruct`               | 128K    | 8K         | Text                                   | ~40 RPM    |
-| `google/gemma-4-31b`                      | 128K    | 8K         | Text                                   | ~40 RPM    |
+| `meta/llama-3.3-70b-instruct`             | 128K    | 4K         | Text                                   | ~40 RPM    |
+| `mistralai/mistral-nemotron`              | 128K    | 8K         | Text                                   | ~40 RPM    |
+| `google/gemma-4-31b-it`                   | 128K    | 8K         | Text                                   | ~40 RPM    |
 | `mistralai/mistral-large-2-instruct`      | 128K    | 4K         | Text                                   | ~40 RPM    |
 | `minimax/minimax-m2.7`                    | 128K    | 8K         | Text                                   | ~40 RPM    |
 | + 90 more models                          | Varies  | Varies     | Text, Image, Video, Speech, Embeddings | ~40 RPM    |
@@ -294,7 +294,6 @@ Base URL: `https://oai.endpoints.kepler.ai.cloud.ovh.net/v1`
 | gpt-oss-120b                   | 128K    | ~32K       | Text          | 2 RPM (anonymous) |
 | gpt-oss-20b                    | 128K    | ~8K        | Text          | 2 RPM (anonymous) |
 | Meta-Llama-3_3-70B-Instruct    | 131K    | ~4K        | Text          | 2 RPM (anonymous) |
-| Llama-3.1-8B-Instruct          | 131K    | ~4K        | Text          | 2 RPM (anonymous) |
 | Qwen3.6-27B                    | 131K    | ~32K       | Text          | 2 RPM (anonymous) |
 | Qwen3.5-9B                     | 131K    | ~8K        | Text          | 2 RPM (anonymous) |
 | Qwen3-32B                      | 131K    | ~32K       | Text          | 2 RPM (anonymous) |
